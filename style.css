@@ -38,3 +38,14 @@ nav a:hover {
   margin: 0 8px;
   vertical-align: middle;
 }
+.project-icons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.project-icon {
+  width: 60px;
+  height: auto;
+  margin: 10px;
+  border-radius: 8px;
+}

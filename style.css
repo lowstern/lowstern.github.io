@@ -49,3 +49,27 @@ nav a:hover {
   margin: 10px;
   border-radius: 8px;
 }
+
+.project-list {
+  display: flex;
+  gap: 20px;
+}
+
+.project-item {
+  width: 150px;
+  height: 150px;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.project-label {
+  margin-top: 10px;
+  font-weight: bold;
+}

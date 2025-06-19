@@ -25,6 +25,7 @@
       text-decoration: none;
       color: #333;
       font-weight: bold;
+      cursor: pointer;
     }
     .content {
       text-align: center;
@@ -69,11 +70,12 @@
       margin-top: 10px;
       font-weight: bold;
     }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #888;
+    section.tab-content {
+      display: none;
+      padding: 2rem;
+    }
+    section.tab-content.active {
+      display: block;
     }
   </style>
 </head>
@@ -81,25 +83,28 @@
   <header>
     <h1>Lowell Stern</h1>
     <nav>
-      <a href="#projects">Projects</a>
-      <a href="/resume.pdf" target="_blank">Resume</a>
+      <a onclick="showTab('about')">About</a>
+      <a onclick="showTab('projects')">Projects</a>
     </nav>
   </header>
 
-  <div class="content">
-    <img src="LowellStern5051_(2)-for_web.jpg" alt="Lowell Stern headshot" class="profile-pic">
-    <p>This site is where I organize what I’ve done and where I’m going.</p>
-
-    <div class="social-icons">
-      <a href="https://lowellstern.substack.com/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968834.png" alt="Substack" class="icon">
-      </a>
-      <a href="https://www.linkedin.com/in/lowellstern" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="icon">
-      </a>
+  <section id="about" class="tab-content active">
+    <div class="content">
+      <img src="LowellStern5051_(2)-for_web.jpg" alt="Lowell Stern headshot" class="profile-pic">
+      <p>This site is where I organize what I’ve done and where I’m going.</p>
+      <div class="social-icons">
+        <a href="https://lowellstern.substack.com/" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968834.png" alt="Substack" class="icon">
+        </a>
+        <a href="https://www.linkedin.com/in/lowellstern" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="icon">
+        </a>
+      </div>
     </div>
+  </section>
 
-    <section id="projects">
+  <section id="projects" class="tab-content">
+    <div class="content">
       <h2>Projects</h2>
       <div class="project-list">
         <a href="https://link-to-marathon-organizer.com" target="_blank" class="project-item">
@@ -109,11 +114,16 @@
           <div class="project-label">Reporting Tool</div>
         </a>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
-  <footer>
-    © 2025 Lowell Stern
-  </footer>
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('section.tab-content').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
 </body>
 </html>

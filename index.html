@@ -7,29 +7,73 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
       font-family: sans-serif;
+      background-color: #f9f7f1;
     }
-    main section {
-      display: none;
-      padding: 20px;
+    header {
+      background-color: #dcd6c3;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    main section.active {
-      display: block;
+    header h1 {
+      margin: 0;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .content {
+      text-align: center;
+      padding: 2rem;
+    }
+    .profile-pic {
+      width: 120px;
+      height: auto;
+      border-radius: 8px;
+      margin-top: 1rem;
     }
     .social-icons {
       display: flex;
       justify-content: center;
-      width: 100%;
-      margin-top: 10px;
+      margin-top: 1rem;
     }
     .icon {
       width: 24px;
       height: 24px;
-      margin: 0 8px;
+      margin: 0 10px;
+    }
+    .project-list {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .project-item {
+      width: 200px;
+      height: 200px;
+      background-color: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 8px;
+      text-decoration: none;
+      color: black;
+    }
+    .project-label {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #888;
     }
   </style>
 </head>
@@ -37,70 +81,39 @@
   <header>
     <h1>Lowell Stern</h1>
     <nav>
-      <a href="#projects">projects</a>
-      <a href="#running">running</a>
-      <a href="#about">about</a>
+      <a href="#projects">Projects</a>
+      <a href="/resume.pdf" target="_blank">Resume</a>
     </nav>
   </header>
 
-  <div class="social-icons">
-    <a href="https://lowellstern.substack.com/" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968834.png" alt="Substack" class="icon">
-    </a>
-    <a href="https://www.linkedin.com/in/lowellstern" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="icon">
-    </a>
-  </div>
-
-  <section id="about" class="about">
+  <div class="content">
     <img src="LowellStern5051_(2)-for_web.jpg" alt="Lowell Stern headshot" class="profile-pic">
     <p>This site is where I organize what I’ve done and where I’m going.</p>
-  </section>
 
-  <main>
-    <section id="projects" class="tab-content">
+    <div class="social-icons">
+      <a href="https://lowellstern.substack.com/" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968834.png" alt="Substack" class="icon">
+      </a>
+      <a href="https://www.linkedin.com/in/lowellstern" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="icon">
+      </a>
+    </div>
+
+    <section id="projects">
       <h2>Projects</h2>
-      <<div class="project-list">
-  <a href="https://link-to-marathon-organizer.com" target="_blank" class="project-item">
-    <div class="project-label">Marathon Organizer</div>
-  </a>
-  <a href="https://link-to-reporting-tool.com" target="_blank" class="project-item">
-    <div class="project-label">Reporting Tool</div>
-  </a>
-</div>
+      <div class="project-list">
+        <a href="https://link-to-marathon-organizer.com" target="_blank" class="project-item">
+          <div class="project-label">Marathon Organizer</div>
+        </a>
+        <a href="https://link-to-reporting-tool.com" target="_blank" class="project-item">
+          <div class="project-label">Reporting Tool</div>
+        </a>
       </div>
     </section>
+  </div>
 
-    <section id="running" class="tab-content">
-      <h2>Running</h2>
-      <h3>Upcoming Races</h3>
-      <p>Last Man Standing - New Gloucester, Maine (2025)</p>
-      <h3>Previous Races</h3>
-      <ul>
-        <li>Cayuga Trails 50 Miler - 2024</li>
-        <li>Cayuga Trails 50K - 2023</li>
-      </ul>
-      <div class="running-gallery">
-        <img src="runner.jpg" alt="Race Photo 1" class="race-photo">
-      </div>
-    </section>
-  </main>
-
-  <script>
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const sections = document.querySelectorAll('main .tab-content');
-        sections.forEach(sec => sec.classList.remove('active'));
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) target.classList.add('active');
-      });
-    });
-    // Set default visible section
-    document.querySelector('#projects').classList.add('active');
-  </script>
-</body>
-</html>
-
+  <footer>
+    © 2025 Lowell Stern
+  </footer>
 </body>
 </html>
